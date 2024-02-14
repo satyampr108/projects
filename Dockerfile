@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Copy the static HTML files from your local directory to the nginx default html directory.
-COPY . /usr/share/nginx/EPICNOW/EPICNOWin.html
+COPY . /usr/share/nginx/EPICNOWin.html
 
 # Expose port 80. This is the default port for HTTP traffic.
 EXPOSE 80
