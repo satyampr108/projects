@@ -5,33 +5,11 @@
 <html lang="en">
 <head>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2399730613037787"
+     crossorigin="anonymous"></script>
+
     <div class="text-right">
-        <style>
-            .button {
-              background-color: #04AA6D; /* Green */
-              border: none;
-              color: white;
-              padding: 5px 32px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-            }
-            
-         
-            .button4 {background-color: #747474; color: rgb(255, 255, 255);} /* Gray */ 
-            .button5 {background-color: #000000;} /* Black */
-            </style>
-            </head>
-            <body>
-               
-                <a href="http://127.0.0.1:5500/2startpic.html" class="button button4">Login</a>
-            <a href="http://127.0.0.1:5500/startepic.html" class="button button5">Sign up</a>
-            
-        
-    </div> 
+
    
     <meta charset="UTF-8">
 
@@ -42,98 +20,150 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #690a0a;
-            margin: 0;
-            padding: 0;
-        }
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
 
-        header {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            text-align: center;
-            padding: 2em 0;
-            background-image: url("bg29.jpg");
-        }
+/* Header styles */
+header {
+    background-color: #333; /* Darker header */
+    color: #ffffff;
+    text-align: center;
+    padding: 2em 0.5em; /* Adjust padding for smaller screens */
+  
+    background-image:  url("https://wallpapercave.com/wp/wp6656049.jpg"  ) ;
+    border-radius: 20px ;
+    border-image-width: 8px;
+    
+}
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-        }
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
 
-        nav {
-            background-color: #000000;
-            padding: 1em 0;
-        }
+/* Navigation styles */
+nav {
+    background-image:  url("bg23.jpg");
+    background-color: #000000;
+    padding: 1em;
+    text-align: center;
+    border-radius: 10px;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 1em;
-            margin: 0 1em;
-            font-weight: bold;
-            transition: color 0.5s ease-in-out;
-        }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+    display: inline-block;
+}
 
-        nav a:hover {
-            color: #868686;
-        }
+nav a:hover {
+    background-color: #00000041; /* Slightly darker on hover */
+    color: #fff;
+}
 
-        .main-content {
-            padding: 2em;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+/* Main content styles */
+.main-content {
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
 
-        .game-card {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 1em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+/* Game card styles */
+.game-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1em;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
+    transition: transform 0.3s ease-in-out;
+    width: calc(33.33% - 2em); /* Adjust for responsive grid layout */
+}
 
-        .game-card:hover {
-            transform: scale(1.05);
-        }
+.game-card:hover {
+    transform: scale(1.05);
+}
 
-        .game-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid #eee;
-        }
+.game-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+    border-radius: 10px 10px 0 0;
+}
 
-        .game-card h2 {
-            padding: 1em;
-            font-size: 1.2em;
-            color: #333;
-        }
+.game-card h2 {
+    padding: 1em;
+    font-size: 1.2em;
+    color: #333;
+}
 
-        .game-card p {
-            padding: 0 1em 1em;
-            color: #8b8a8a;
-        }
+.game-card p {
+    padding: 0 1em 1em;
+    color: #666;
+}
 
-        footer {
-            text-align: center;
-            padding: 1em;
-            background-color: #494949;
-            color: #fff;
-            background-image: url("f2.jpg");
-        }
-        #myname {
-            color: #000000;
-            background-color: #ffffff;
-            width: fit-content;
-            margin: 0 auto;
-        }
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #666; /* Darker footer */
+    color: #fff;
+    background-image: url("f2.jpg");
+}
 
-        
+/* #myname styles */
+#myname {
+    color: #000000;
+    background-color: #fff;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 1em 0.5em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .main-content {
+        padding: 1em;
+    }
+
+    .game-card {
+        width: 100%;
+    }
+}
+
+
+
+
     </style>
 </head>
 <body>
@@ -159,58 +189,81 @@
 
 
 
-    
+    <hr>
     <nav>
         <a href="http://127.0.0.1:5500/EPICNOWin.html">Home</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRMN8nqdzf-INJsxNJoywk5INTkr0jeXv9lnGMEr_2SkZEug/viewform?usp=sf_link">Review</a>
         <a href="https://sites.google.com/view/jdjdjjdjdnnc/home">About</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-4jDIiszDTXI2_UW_B3yfQZsWFa21e2bPd4dnn_gPcT9iSA/viewform?usp=sf_link">Contact</a>
     </nav>
+    <hr>
 
     <div class="main-content">
         <div class="game-card">
             <img src="game1.jpg" alt="Game 1 Image">
             <h2><b>Minecraft MCPE</b></h2>
-            <p>What is Minecraft? At its core, <b>Minecraft</b> is a game where players place blocks and go on adventures. This includes anything from crafting simple items like containers or weapons, to building structures like houses, castles, and cities, or even making complex mechanical devices, all within the game's world.13 Sept 2023</p>
-
-        <a href="https://www.androidp1.com/en/file_2726-dw_apk.html">.....DOWNLOAD FREE VERSION OF MCPE</a>
+            <hr>
+         
+            <p>Size : <b>249 MB</b></p>
+            <hr>
+            <P>Version :  <b>v1.20.60.04</b></P>
+            <hr>
+            <p>Android : <b> 5.1 +</b></p>
+        <b><a href="https://www.androidp1.com/en/file_2726-dw_apk.html">DOWNLOAD FREE VERSION</a></b>
             <br>
-        <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&pcampaignid=web_share">.....DOWNLOAD PAID VERSION OF MCPE</a>
+        <b><a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&pcampaignid=web_share">DOWNLOAD PAID VERSION</a></b>
         </div>
+    
 
         <div class="game-card">
             <img src="game2.jpg" alt="Game 2 Image">
             <h2><b>Clash of Clans</b></h2>
-            <p><b>Clash of Clans</b> is an online multiplayer strategy game published by <b>Supercell</b>. You can build your own community, train troops and attack other players. You can join a clan of players or start your own clan and invite friends. You can interact with other players through in-game messaging and voice chat.15 Jan 2023</p>
-            <a href="https://an1.com/file_5101-dw.html">.....DOWNLOAD HACK MOD OF COC</a>
+            <hr>
+            <p>Size : <b>236.3 MB</b></p>
+            <hr>
+            <p>Version : <b>v16.0.25</b></p>
+            <hr>
+            <p>Android : <b>4.3 +</b></p>
+            <b><a href="https://an1.com/file_5101-dw.html">DOWNLOAD HACK MOD</a></b>
             <br>
-            <a href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans&pcampaignid=web_share">.....DOWNLOAD OFFICIAL VERSION OF COC</a>
+            <b><a href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION</a></b>
         </div>
+
 
         <div class="game-card">
           <img src="game4.jpg" alt="Game 4 Image">
           <h2><b>Need For Speed</b></h2>
-          <p><b>Need for Speed Most Wanted</b> (MOD, Money/Unlocked) - incredibly dynamic and exciting from the first minutes of the racing simulator, in which you will have a unique opportunity to sit behind the wheel of the fastest and most expensive sports car in the world. Earn money for winning the race and buy new cars, or improve those that already exist. The game will give you a lot of emotions and a lot of positive, to all the fans of racing simulators, she will love it!
-        </p>
-        <a href="https://play.google.com/store/apps/details?id=com.ea.games.nfs13_row&pcampaignid=web_share">.....DOWNLOAD NFS MW</a>
+          <hr>
+          <p>Size : <b>608.7Mb</b></p>
+        <hr>
+        <p>Version : <b>v1.3.128</b></p>
+        <hr>
+        <p>Android : <b>4.1 +</b></p>
+        <b><a href="https://play.google.com/store/apps/details?id=com.ea.games.nfs13_row&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION </a></b>
         <br>
-        <a href="https://an1.com/3324-need-for-speed-most-wanted-mod-apk.html">.....DOWNLOAD HACK MOD OF NFS MW</a>
+        <b><a href="https://an1.com/3324-need-for-speed-most-wanted-mod-apk.html">DOWNLOAD HACK MOD</a></b>
       </div>
 
       <div class="game-card">
         <img src="game5.jpg" alt="Game 3 Image">
         <h2><b>Clash Royal</b></h2>
-        <p><b>Clash Royale</b> bis a real-time multiplayer game starring the Royales, your favourite Clash characters and much, much more. Collect and upgrade dozens of cards featuring the Clash of Clans troops, spells and defenses you know and love, as well as the Royales: Princes, Knights, Baby Dragons and more. Knock the enemy King and Princesses from their towers to defeat your opponents and win Trophies, Crowns and glory in the Arena</p>
-        <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale&pcampaignid=web_share">.....DOWNLOAD CLASH ROYAL</a>
+        <p>Size : <b>342.7 MB</b></p>
+        <hr>
+        <p>Version : <b>v50142017</b></p>
+        <hr>
+        <p>Android : <b>Android 4.3 +</b></p>
+        <b><a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION</a></b>
         <br>
-        <a href="https://an1.com/file_5100-dw.html">.....DOWNLOAD HACK MOD OF CLASH ROYAL</a>
+        <b><a href="https://an1.com/file_5100-dw.html">DOWNLOAD HACK MOD</a></b>
     </div>
 
+
     <div class="game-card">
-        <img src="game6.png" alt="Game 3 Image">
-        <h2>Shadow Fight 3</h2>
-        <a href="https://an1.com/file_4682-dw.html">Download Hack Mod</a>
-        <p></p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7UNrqOgI9XZKO7Qm1ad2jEHC3CaDklpa1dWorsBjHN9pIcKu9Hbc58ZVtmBpI872Tk7Y&usqp=CAU" alt="Game 3 Image">
+        <h2><em>Shadow Fight 3</em></h2>
+        <b><a href="https://an1.com/file_4682-dw.html">DOWNLOAD HACK MOD</a></b>
+    <br>
+    <b><a href="">DOWNLOAD OFFICIAL VERSION</a></b>
     </div>
 
     <div class="game-card">
@@ -276,40 +329,26 @@
         <p></p>
     </div>
 
+
     <div class="game-card">
-        <img src="game.jpg" alt="Game 3 Image">
-        <h2>Game Title 3</h2>
+        <img src="game15.png" alt="Game 3 Image">
+        <h2>Coin Master</h2>
+        <a href="https://an1.com/file_6089-dw.html">Download Hack Mod</a>
         <p></p>
     </div>
 
-    <div class="game-card">
-        <img src="game3.jpg" alt="Game 3 Image">
-        <h2>Game Title 3</h2>
+    <!--<div class="game-card">
+        <img src="" alt="">
+        <h2></h2>
+        <a href="">Download Hack Mod</a>
         <p></p>
-    </div>
-
-    <div class="game-card">
-        <img src="game3.jpg" alt="Game 3 Image">
-        <h2>Game Title 3</h2>
-        <p></p>
-    </div>
-
-    <div class="game-card">
-        <img src="game3.jpg" alt="Game 3 Image">
-        <h2>Game Title 3</h2>
-        <p></p>
-    </div>
-
-    <div class="game-card">
-        <img src="game3.jpg" alt="Game 3 Image">
-        <h2>Game Title 3</h2>
-        <p></p>
-    </div>
+    </div> -->
 
 
 
 
         <!-- Add more game cards as needed -->
+ 
     </div>
 
     
