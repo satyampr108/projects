@@ -20,428 +20,553 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-/* General styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  *{
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-}
-
-/* Header styles */
-header {
-    background-color: #333; /* Darker header */
-    color: #ffffff;
-    text-align: center;
-    padding: 2em 0.5em; /* Adjust padding for smaller screens */
-  
-    background-image:  url("https://wallpapercave.com/wp/wp6656049.jpg"  ) ;
-    border-radius: 20px ;
-    border-image-width: 8px;
-    
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-}
-
-/* Navigation styles */
-nav {
-    background-image:  url("bg23.jpg");
-    background-color: #000000;
-    padding: 1em;
-    text-align: center;
-    border-radius: 10px;
-}
-
-nav a {
-    color: #fff;
+    box-sizing: border-box;
     text-decoration: none;
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-nav a:hover {
-    background-color: #00000041; /* Slightly darker on hover */
+    font-family: 'Poppins', sans-serif;
+  }
+  .wrapper{
+    background: #171c24;
+    position: fixed;
+    width: 100%;
+  }
+  .wrapper nav{
+    position: relative;
+    display: flex;
+    max-width: calc(100% - 200px);
+    margin: 0 auto;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .content{
+    display: flex;
+    align-items: center;
+  }
+  nav .content .links{
+    margin-left: 80px;
+    display: flex;
+  }
+  .content .logo a{
     color: #fff;
-}
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .content .links li{
+    list-style: none;
+    line-height: 70px;
+  }
+  .content .links li a,
+  .content .links li label{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .content .links li label{
+    display: none;
+  }
+  .content .links li a:hover,
+  .content .links li label:hover{
+    background: #323c4e;
+  }
+  .wrapper .search-icon,
+  .wrapper .menu-icon{
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+  }
+  .wrapper .menu-icon{
+    display: none;
+  }
+  .wrapper #show-search:checked ~ .search-icon i::before{
+    content: "\f00d";
+  }
+  
+  .wrapper .search-box{
+    position: absolute;
+    height: 100%;
+    max-width: calc(100% - 50px);
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .wrapper #show-search:checked ~ .search-box{
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .search-box input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: #fff;
+    background: #171c24;
+    padding: 0 100px 0 15px;
+  }
+  .search-box input::placeholder{
+    color: #f2f2f2;
+  }
+  .search-box .go-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 60px;
+    width: 70px;
+    background: #171c24;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .wrapper input[type="checkbox"]{
+    display: none;
+  }
+  
+  /* Dropdown Menu code start */
+  .content .links ul{
+    position: absolute;
+    background: #171c24;
+    top: 80px;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .content .links li:hover > ul{
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+  }
+  .content .links ul li a{
+    display: block;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 0px!important;
+  }
+  .content .links ul ul{
+    position: absolute;
+    top: 0;
+    right: calc(-100% + 8px);
+  }
+  .content .links ul li{
+    position: relative;
+  }
+  .content .links ul li:hover ul{
+    top: 0;
+  }
+  
+  /* Responsive code start */
+  @media screen and (max-width: 1250px){
+    .wrapper nav{
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    nav .content .links{
+      margin-left: 30px;
+    }
+    .content .links li a{
+      padding: 8px 13px;
+    }
+    .wrapper .search-box{
+      max-width: calc(100% - 100px);
+    }
+    .wrapper .search-box input{
+      padding: 0 100px 0 15px;
+    }
+  }
+  
+  @media screen and (max-width: 900px){
+    .wrapper .menu-icon{
+      display: block;
+    }
+    .wrapper #show-menu:checked ~ .menu-icon i::before{
+      content: "\f00d";
+    }
+    nav .content .links{
+      display: block;
+      position: fixed;
+      background: #14181f;
+      height: 100%;
+      width: 100%;
+      top: 100px;
+      left: -100%;
+      margin-left: 0;
+      max-width: 350px;
+      overflow-y: auto;
+      padding-bottom: 100px;
+      transition: all 0.3s ease;
+     
+    }
+    nav #show-menu:checked ~ .content .links{
+      left: 0%;
+    }
+    .content .links li{
+      margin: 15px 20px;
+    }
+    .content .links li a,
+    .content .links li label{
+      line-height: 40px;
+      font-size: 20px;
+      display: block;
+      padding: 8px 18px;
+      cursor: pointer;
+    }
+    .content .links li a.desktop-link{
+      display: none;
+    }
+  
+    /* dropdown responsive code start */
+    .content .links ul,
+    .content .links ul ul{
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      background: none;
+      max-height: 0px;
+      overflow: hidden;
+    }
+    .content .links #show-features:checked ~ ul,
+    .content .links #show-services:checked ~ ul,
+    .content .links #show-items:checked ~ ul{
+      max-height: 100vh;
+    }
+    .content .links ul li{
+      margin: 7px 20px;
+    }
+    .content .links ul li a{
+      font-size: 18px;
+      line-height: 30px;
+      border-radius: 5px!important;
+    }
+  }
+  
+  @media screen and (max-width: 400px){
+    .wrapper nav{
+      padding: 0 10px;
+    }
+    .content .logo a{
+      font-size: 27px;
+    }
+    .wrapper .search-box{
+      max-width: calc(100% - 70px);
+    }
+    .wrapper .search-box .go-icon{
+      width: 30px;
+      right: 0;
+    }
+    .wrapper .search-box input{
+      padding-right: 30px;
+    }
+  }
+
 
 /* Main content styles */
-.main-content {
-    padding: 2em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    text-align: center;
-}
 
-/* Game card styles */
-.game-card {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 1em;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
-    transition: transform 0.3s ease-in-out;
-    width: calc(33.33% - 2em); /* Adjust for responsive grid layout */
-}
 
-.game-card:hover {
-    transform: scale(1.05);
-}
 
-.game-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-bottom: 2px solid #eee;
-    border-radius: 10px 10px 0 0;
-}
+    
+.container {
+            display: flex;
+            overflow: hidden; /* Remove the horizontal scroll bar */
+            font-size: 18px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: none;
+            margin: 20px;
+            touch-action: pan-x; /* Enable horizontal touch scrolling */
+        }
 
-.game-card h2 {
-    padding: 1em;
-    font-size: 1.2em;
-    color: #333;
-}
+        .item {
+            flex: 0 0 auto;
+            width: 196px;
+            height: 340px;
+            background-color: none;
+            margin-right: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'poppins',sans-serif;
+        }
 
-.game-card p {
-    padding: 0 1em 1em;
-    color: #666;
-}
+       
+
+        .item-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        p {
+            margin: 8px 0 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .item-content img {
+            width: 150px;
+            height: 150px;
+            align-items: center;
+            border-radius: 8px;
+        }
+   
+
+   
+
 
 /* Footer styles */
 footer {
     text-align: center;
     padding: 1em;
-    background-color: #666; /* Darker footer */
+    background-color: #171c24; /* Darker footer */
     color: #fff;
-    background-image: url("f2.jpg");
+
 }
 
-/* #myname styles */
-#myname {
-    color: #000000;
-    background-color: #fff;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.footer-contact {
+  color: #fff;
 }
 
-/* Media queries for responsiveness */
-@media only screen and (max-width: 768px) {
-    header {
-        padding: 1em 0.5em;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    nav a {
-        display: block;
-        width: 100%;
-        margin: 0.5em 0;
-    }
-
-    .main-content {
-        padding: 1em;
-    }
-
-    .game-card {
-        width: 100%;
-    }
+#slogan {
+  color: #fff;
 }
 
-    .pagination {
-      display: flex;
-      text-align: center;
-      align-items: center;
-    }
+#games {
+    text-align: left;
+    font-size: 20px;
+    margin-left: 2em;
+}
 
-    .page-link {
-      padding: 10px;
-      margin: 5px;
-      text-decoration: none;
-      color: #333;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-      width: 100px; /* Adjust the width as needed */
-      text-align: center;
-      box-shadow: 0 0 10px;
-    }
+#namespace {
+  padding: 8px;
+  font-size: 18px;
+}
 
-    .page-link:hover {
-      background-color: #f4f4f4;
-    }
+.footer-contact {
+  color: #fff;
+}
 
-    .previous {
-      margin-right: 10px;
-      align-items: center;
-    }
+.cu {
+  color: #ffffff;
+}
+
+.footer-social-icons {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  padding: 20em;
+  font-size: 18px;
+  padding-block: 4px;
+  
+  
+
+}
+
+#slogan {
+  padding: 8px;
+  background-color: #14181f;
+  border-radius: 4px;
+
+}
+
+hr.new1 {
+  border-top: 2px solid rgb(255, 47, 151);
+  width: 80px;
+  margin-left: 425px;
+}
+
+.footer-social-icon:hover {
+  background-color: #0062ff;
+}
 
     </style>
 </head>
 <body>
 
     <header>
-        <div class="text-middle">
-        <h1>EpicNow.in</h1>
-     <b><em> <p id="mytype">Explore the world of gaming</p></em></b>
         
-        <p id="myname"><b>POWERED BY SATYAM PRAJAPATI</b></p>
-
        
+        <div class="wrapper">
+            <nav>
+              <input type="checkbox" id="show-search">
+              <input type="checkbox" id="show-menu">
+              <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+              <div class="content">
+              <div class="logo"><a href="#">EpicNow.in</a></div>
+                <ul class="links">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li>
+                    <a href="#" class="desktop-link">Games</a>
+                    <input type="checkbox" id="show-features">
+                    <label for="show-features">Games</label>
+                    <ul>
+                      <li><a href="#">Drop Menu 1</a></li>
+                      <li><a href="#">Drop Menu 2</a></li>
+                      <li><a href="#">Drop Menu 3</a></li>
+                      <li><a href="#">Drop Menu 4</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="desktop-link">Reviews</a>
+                    <input type="checkbox" id="show-services">
+                    <label for="show-services">Reviews</label>
+                    <ul>
+                      <li><a href="#">Drop Menu 1</a></li>
+                      <li><a href="#">Drop Menu 2</a></li>
+                      <li><a href="#">Drop Menu 3</a></li>
+                      <li>
+                        <a href="#" class="desktop-link">More Items</a>
+                        <input type="checkbox" id="show-items">
+                        <label for="show-items">More Items</label>
+                        <ul>
+                          <li><a href="#">Sub Menu 1</a></li>
+                          <li><a href="#">Sub Menu 2</a></li>
+                          <li><a href="#">Sub Menu 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Help and Support </a></li>
+                </ul>
+              </div>
+              <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+              <form action="#" class="search-box">
+                <input type="text" placeholder="Type Something to Search..." required>
+                <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+              </form>
+            </nav>
+          </div>
+
+
         
-
-
-        </div>
     </header>
 
-
-       
+<br>
+<br>
+<br>
+<br>
    
 
-
-
-
-    <hr>
-    <nav>
-        <a href="http://127.0.0.1:5500/EPICNOWin.html">Home</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdRMN8nqdzf-INJsxNJoywk5INTkr0jeXv9lnGMEr_2SkZEug/viewform?usp=sf_link">Review</a>
-        <a href="https://sites.google.com/view/jdjdjjdjdnnc/home">About</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-4jDIiszDTXI2_UW_B3yfQZsWFa21e2bPd4dnn_gPcT9iSA/viewform?usp=sf_link">Contact</a>
-    </nav>
-    <hr>
+    <p id="games">LATEST GAMES</p>
     
-    <div class="main-content">
-        <div class="game-card">
-            <img src="game1.jpg" alt="Game 1 Image">
-            <h2><b>Minecraft MCPE</b></h2>
-            <hr>
-         
-            <p>Size : <b>249 MB</b></p>
-            <hr>
-            <P>Version :  <b>v1.20.60.04</b></P>
-            <hr>
-            <p> Android : <b> 5.1 +</b></p>
-        <b><a href="https://www.androidp1.com/en/file_2726-dw_apk.html">DOWNLOAD FREE VERSION</a></b>
-            <br>
-        <b><a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&pcampaignid=web_share">DOWNLOAD PAID VERSION</a></b>
-        </div>
     
+  
 
-        <div class="game-card">
-            <img src="game2.jpg" alt="Game 2 Image">
-            <h2><b>Clash of Clans</b></h2>
-            <hr>
-            <p>Size : <b>236.3 MB</b></p>
-            <hr>
-            <p>Version : <b>v16.0.25</b></p>
-            <hr>
-            <p>Android : <b>4.3 +</b></p>
-            <b><a href="https://an1.com/file_5101-dw.html">DOWNLOAD HACK MOD</a></b>
-            <br>
-            <b><a href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION</a></b>
-        </div>
-
-
-        <div class="game-card">
-          <img src="game4.jpg" alt="Game 4 Image">
-          <h2><b>Need For Speed</b></h2>
+    <div class="container" id="scrollContainer"> <!-- Add an ID to the container for JavaScript -->
+      <!-- Your content goes here -->
+      <div class="item">
+          <div class="item-content">
+              <p><img src="https://an1.com/uploads/posts/2023-10/1696490594_shadow-slayer.png" ></p>
+              <p id="namespace">shadow slayer</p>
+              <b><a href="downloadpage1.html">DOWNLOAD MOD</a></b>
+              <br>
+              <br>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          </div>
           <hr>
-          <p>Size : <b>608.7Mb</b></p>
-        <hr>
-        <p>Version : <b>v1.3.128</b></p>
-        <hr>
-        <p>Android : <b>4.1 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.ea.games.nfs13_row&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION </a></b>
-        <br>
-        <b><a href="https://an1.com/3324-need-for-speed-most-wanted-mod-apk.html">DOWNLOAD HACK MOD</a></b>
+      </div>
+      <div class="item">
+          <div class="item-content">
+              <h3>Item 2</h3>
+              <p>Description for Item 2.</p>
+          </div>
+      </div>
+      <div class="item">
+          <div class="item-content">
+              <h3>Item 3</h3>
+              <p>Description for Item 3.</p>
+          </div>
       </div>
 
-      <div class="game-card">
-        <img src="game5.jpg" alt="Game 3 Image">
-        <h2><b>Clash Royal</b></h2>
-        <HR>
-        <p>Size : <b>342.7 MB</b></p>
-        <hr>
-        <p>Version : <b>v50142017</b></p>
-        <hr>
-        <p>Android : <b> 4.3 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale&pcampaignid=web_share">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_5100-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-
-    <div class="game-card">
-        <img src="https://play-lh.googleusercontent.com/57JMKLkzF1sLNU0xqznbUry-xJq97X_KZefMbZwPEqFvd4g1y7Lm4L6tTv8esgak5A=w526-h296-rw" alt="Game 3 Image">
-        <h2><em>Shadow Fight 3</em></h2>
-        <HR>
-        <p>Size : <b>194.3 MB</b></p>
-        <hr>
-        <p>Version : <b>v1.35.2</b></p>
-        <hr>
-        <p>Android : <b>5.1 +</b></p>
-        <b><a href="https://an1.com/file_4682-dw.html">DOWNLOAD HACK MOD</a></b>
-    <br>
-    <b><a href="https://play.google.com/store/apps/details?id=com.nekki.shadowfight3&hl=en_IN&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://staticg.sportskeeda.com/editor/2020/06/c7eef-15935104472737-800.jpg" alt="Game 3 Image">
-        <h2><em>Mobile Ledgens</em></h2>
-        <HR>
-        <p>Size : <b>147.9 MB</b></p>
-        <hr>
-        <p>Version : <b>v1.8.58.9312</b></p>
-        <hr>
-        <p>Android : <b>4.2 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.mobile.legends&hl=en_IN&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_4959-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://games.lol/wp-content/uploads/2019/05/extreme-car-driving-pc-full-version-with-logo.jpg" alt="Game 3 Image">
-        <h2><em>Extreme Car Driving Simulator</em></h2>
-        <HR>
-        <p>Size : <b>264.9 Mb</b></p>
-        <hr>
-        <p>Version : <b>v6.85.1</b></p>
-        <hr>
-        <p>Android : <b>5.1 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.aim.racing&hl=en_IN&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_2939-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://miro.medium.com/v2/resize:fit:888/1*EKbDkGAsHkcMV2WF0fmHGA.png" alt="Game 3 Image">
-        <h2><em>Subway Surfers</em></h2>
-        <HR>
-        <p>Size : <b>162.1 Mb</b></p>
-        <hr>
-        <p>Version : <b>v3.24.2</b></p>
-        <hr>
-        <p>Android : <b>5.1 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en_IN&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_4683-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://gaming-cdn.com/images/products/7522/616x353/among-us-pc-game-steam-cover.jpg?v=1706714781" alt="Game 3 Image">
-        <h2><em>Among Us</em></h2>
-        <HR>
-        <p>Size : <b>473.7 Mb</b></p>
-        <hr>
-        <p>Version : <b>v2024.2.8</b></p>
-        <hr>
-        <p>Android : <b>6.0 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=en_IN&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_6553-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://play-lh.googleusercontent.com/lQCUXbHwTgdLa8MEcUBf7uYlT0NPEoschQ3FUKdWaFHc_6FdgHISL8MZ9RxcnoGoZg" alt="Game 3 Image">
-        <h2><em>Solar Smash</em></h2>
-        <HR>
-        <p>Size : <b>129.7 Mb</b></p>
-        <hr>
-        <p>Version : <b>v2.3.4</b></p>
-        <hr>
-        <p>Android : <b>5.1 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.paradyme.solarsmash&hl=en&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_6668-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://liteapks.com/wp-content/uploads/2023/02/rope-hero-mafia-city-wars-1.jpg" alt="Game 3 Image">
-        <h2><em>Rope Hero: Mafia City Wars</em></h2>
-        <HR>
-        <p>Size : <b>145.8 Mb</b></p>
-        <hr>
-        <p>Version : <b>v1.5.6</b></p>
-        <hr>
-        <p>Android : <b>9 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.naxeex.ropehero.mafia.city.wars&hl=en&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_7151-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-    <div class="game-card">
-        <img src="https://static.gameguardian.net/monthly_2023_02/1637353095_dmpthumb.jpg.2735d14185b712533bf2756bf9723766.jpg" alt="Game 3 Image">
-        <h2><em>Drift Max Pro</em></h2>
-        <HR>
-        <p>Size : <b>563.3 Mb</b></p>
-        <hr>
-        <p>Version : <b>v2.5.49</b></p>
-        <hr>
-        <p>Android : <b>8.0 +</b></p>
-        <b><a href="https://play.google.com/store/apps/details?id=com.tiramisu.driftmax2&hl=en&gl=US">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="https://an1.com/file_4681-dw.html">DOWNLOAD HACK MOD</a></b>
-    </div>
-
-
-
-    <!--
-           <div class="game-card">
-        <img src="#" alt="Game 3 Image">
-        <h2><em>#</em></h2>
-        <HR>
-        <p>Size : <b>#</b></p>
-        <hr>
-        <p>Version : <b>#</b></p>
-        <hr>
-        <p>Android : <b>#</b></p>
-        <b><a href="#">DOWNLOAD OFFICIAL VERSION</a></b>
-        <br>
-        <b><a href="#">DOWNLOAD HACK MOD</a></b>
-    </div>
-  -->
-
-
-
-    <!--<div class="game-card">
-        <img src="#" alt="#">
-        <h2></h2>
-        <a href="#">Download Hack Mod</a>
-        <p></p>
-    </div> -->
-
-
-
-
-        <!-- Add more game cards as needed -->
- 
-    </div>
-
-<hr>
-    
-    <div class="pagination">
-        <a href="#" class="page-link previous">&#9666; Previous</a>
-        <a href="#" class="page-link">1</a>
-        <a href="#" class="page-link">2</a>
-        <a href="#" class="page-link">3</a>
-        <a href="#" class="page-link">4</a>
-        <a href="#" class="page-link">5</a>
+      <div class="item">
+          <div class="item-content">
+              <h3>Item 4</h3>
+              <p>Description for Item 4.</p>
+          </div>
       </div>
-    
-<hr>        
+
+      <div class="item">
+          <div class="item-content">
+              <h3>Item 5</h3>
+              <p>Description for Item 5.</p>
+          </div>
+      </div>
+      <!-- Add more items as needed -->
+  </div>
+
+  <script>
+      // JavaScript to enable horizontal scrolling with both mouse and touch events
+      var container = document.getElementById('scrollContainer');
+      var isPointerDown = false;
+      var startPointerX;
+      var startScrollLeft;
+      var isTouchDown = false;
+      var startTouchX;
+
+      container.addEventListener('mousedown', function (e) {
+          isPointerDown = true;
+          startPointerX = e.pageX;
+          startScrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('mouseup', function () {
+          isPointerDown = false;
+      });
+
+      container.addEventListener('mousemove', function (e) {
+          if (!isPointerDown) return;
+          e.preventDefault();
+          var x = e.pageX;
+          var walk = (x - startPointerX) * 3; // Adjust the scrolling speed as needed
+          container.scrollLeft = startScrollLeft - walk;
+      });
+
+      container.addEventListener('touchstart', function (e) {
+          isTouchDown = true;
+          startTouchX = e.touches[0].pageX;
+          startScrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('touchend', function () {
+          isTouchDown = false;
+      });
+
+      container.addEventListener('touchmove', function (e) {
+          if (!isTouchDown) return;
+          e.preventDefault();
+          var x = e.touches[0].pageX;
+          var walk = (x - startTouchX) * 3; // Adjust the scrolling speed as needed
+          container.scrollLeft = startScrollLeft - walk;
+      });
+  </script>
+
+
+
+    </div>
+  
+
+
+
+  
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -450,22 +575,30 @@ footer {
             </div>
 
             <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <p>Email: EpicNow16@gmail.com</p>
-                <p>Phone: +1 (123) 456-7890</p>
-                <h4>Follow Us</h4>
+              
+                <h5>Contact Us</h5>
+                <hr class="new1">
+                <h6><i class="fa-solid fa-envelope"></i>  Email: EpicNow16@gmail.com</h6>
+                <h6><i class="fa-solid fa-phone"></i>  Phone: +1 (123) 456-7890</h6>
+          <br>
+                <h5>Follow Us</h5>
+                <hr class="new1">
                 <div class="footer-social-icons">
-                    <div class ="text-middle"><a href="https://www.facebook.com/"><img src="face1.png" alt="HTML tutorial" style="width:42px;height:42px;"></a></div>
-                    <div class ="text-left"></div> 
+                    <div class ="text-middle"><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a></div>
+                   
                     
-                    <div class = "text-middle"><a href="https://twitter.com/i/flow/login"><img src="tw1.webp" alt="HTML tutorial" style="width:42px;height:42px;"></a></div>
-                    
-                    <div class = "text-middle"><a href="https://www.youtube.com/"><img src="ytt1.png" alt="HTML tutorial" style="width:42px;height:42px;"></a></div>
-                    <br>
+                    <div class = "text-middle"><a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-twitter"></i></a></div>
+               
+                    <div class = "text-middle"><a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></div>
+
+                    <div class = "text-middle"><a href="https://www.youtube.com/"><i class="fa-brands fa-github"></i></a></div>
+               
                 </div>
             </div>
         </div>
+        <br>
         <p id="slogan">&copy; Since 2022 EpicNow.in By satyam prajapati. All rights reserved.</p>
+
     </footer>
     
 
