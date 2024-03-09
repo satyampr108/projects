@@ -1,5 +1,5 @@
 <link rel="icon" href=
-"s1.jpg"
+"EpicNow.in1.png"
           type="image/x-icon">
           <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   *{
     margin: 0;
     padding: 0;
@@ -41,6 +46,8 @@
     height: 70px;
     align-items: center;
     justify-content: space-between;
+    margin-top: 0.5em;
+
   }
   nav .content{
     display: flex;
@@ -49,15 +56,35 @@
   nav .content .links{
     margin-left: 80px;
     display: flex;
+    text-decoration: none;
   }
+
+
   .content .logo a{
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
+    text-decoration: none;
+ 
   }
+
+
+  .content .logo img {
+    border-radius: 6px;
+    cursor: default;
+    width: 50px;
+    height: 50px;
+
+
+    
+  }
+
+
   .content .links li{
     list-style: none;
     line-height: 70px;
+    text-decoration: none;
+    margin-top: 8px;
   }
   .content .links li a,
   .content .links li label{
@@ -67,6 +94,7 @@
     padding: 9px 17px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   .content .links li label{
     display: none;
@@ -258,7 +286,16 @@
       padding: 0 10px;
     }
     .content .logo a{
-      font-size: 27px;
+      font-size: 24px;
+      display: flex;
+      
+    }
+
+    .content .logo img {
+       width: 40px;
+       height: 40px;
+       border-radius: 6px;
+       margin-right: 6px;
     }
     .wrapper .search-box{
       max-width: calc(100% - 70px);
@@ -272,10 +309,24 @@
     }
   }
 
+  .faq1 {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
 
 /* Main content styles */
 
-
+#games {
+  text-align: left;
+  margin-left: 2em;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 18px;
+}
 
     
 .container {
@@ -285,8 +336,10 @@
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: none;
-            margin: 20px;
+            margin-bottom: 2em;
             touch-action: pan-x; /* Enable horizontal touch scrolling */
+            width: 100%;
+            cursor: grab;
         }
 
         .item {
@@ -297,9 +350,10 @@
             margin-right: 15px;
             border-radius: 12px;
             overflow: hidden;
-            cursor: pointer;
+            cursor: grab;
             transition: background-color 0.3s;
             font-family: 'poppins',sans-serif;
+            text-decoration: none;
         }
 
        
@@ -307,6 +361,7 @@
         .item-content {
             padding: 15px;
             text-align: center;
+            text-decoration: none;
         }
 
         h3 {
@@ -331,71 +386,50 @@
 
    
 
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #171c24; /* Darker footer */
-    color: #fff;
+/* footer design */
+  
+.footer-content {
+  text-align: center;
+  background-color: #050505;
+  padding: 2em;
+  overflow-x: hidden;
 
 }
 
-.footer-contact {
-  color: #fff;
-}
 
 #slogan {
+  text-align: center;
+  background-color: #191919;
+  padding: 0.5em;
+  border-radius: 8px;
+  color: #ffffff80;
+}
+
+
+.h51 {
   color: #fff;
+  padding: 2px;
 }
 
-#games {
-    text-align: left;
-    font-size: 20px;
-    margin-left: 2em;
-}
-
-#namespace {
-  padding: 8px;
-  font-size: 18px;
-}
-
-.footer-contact {
+.h52 {
   color: #fff;
+  padding-bottom: 8px;
 }
 
-.cu {
-  color: #ffffff;
-}
-
-.footer-social-icons {
-  justify-content: space-around;
+@media screen and (max-width: 250px){
+.social-icons {
+  color: #000000;
+  font-size: 24px;
   align-items: center;
   display: flex;
-  padding: 20em;
-  font-size: 18px;
-  padding-block: 4px;
+  justify-content: space-around;
+  margin-inline: 300px;
   
-  
-
+}
 }
 
-#slogan {
-  padding: 8px;
-  background-color: #14181f;
-  border-radius: 4px;
 
-}
 
-hr.new1 {
-  border-top: 2px solid rgb(255, 47, 151);
-  width: 80px;
-  margin-left: 425px;
-}
-
-.footer-social-icon:hover {
-  background-color: #0062ff;
-}
 
     </style>
 </head>
@@ -410,39 +444,28 @@ hr.new1 {
               <input type="checkbox" id="show-menu">
               <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
               <div class="content">
-              <div class="logo"><a href="#">EpicNow.in</a></div>
+              <div class="logo"><a href="#"><img src="EpicNow.png"> EpicNow.in</a></div>
                 <ul class="links">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About</a></li>
+                  <li id="home"><a href="#home">Home</a></li>
+                  <li><a href="https://sites.google.com/view/jdjdjjdjdnnc/home">About</a></li>
                   <li>
                     <a href="#" class="desktop-link">Games</a>
                     <input type="checkbox" id="show-features">
                     <label for="show-features">Games</label>
                     <ul>
-                      <li><a href="#">Drop Menu 1</a></li>
-                      <li><a href="#">Drop Menu 2</a></li>
-                      <li><a href="#">Drop Menu 3</a></li>
-                      <li><a href="#">Drop Menu 4</a></li>
+                      <li><a href="#">Action (1)</a></li>
+                      <li><a href="#">Arcade ()</a></li>
+                      <li><a href="#">Simulations ()</a></li>
+                      <li><a href="#">Strategy ()</a></li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#" class="desktop-link">Reviews</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf7e8EMT0EgJHEK8XT-ecIOG0Euamiu4zi19ea5segvr2gC7w/viewform?usp=sf_link" class="desktop-link">Reviews</a>
                     <input type="checkbox" id="show-services">
                     <label for="show-services">Reviews</label>
                     <ul>
-                      <li><a href="#">Drop Menu 1</a></li>
-                      <li><a href="#">Drop Menu 2</a></li>
-                      <li><a href="#">Drop Menu 3</a></li>
-                      <li>
-                        <a href="#" class="desktop-link">More Items</a>
-                        <input type="checkbox" id="show-items">
-                        <label for="show-items">More Items</label>
-                        <ul>
-                          <li><a href="#">Sub Menu 1</a></li>
-                          <li><a href="#">Sub Menu 2</a></li>
-                          <li><a href="#">Sub Menu 3</a></li>
-                        </ul>
-                      </li>
+                      
+  
                     </ul>
                   </li>
                   <li><a href="#">Help and Support </a></li>
@@ -466,9 +489,11 @@ hr.new1 {
 <br>
    
 
-    <p id="games">LATEST GAMES</p>
+    <p id="games"><i class="fa-solid fa-gamepad"></i> LATEST GAMES</p>
     
-    
+    <!--
+      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i>
+    -->
   
 
     <div class="container" id="scrollContainer"> <!-- Add an ID to the container for JavaScript -->
@@ -480,7 +505,7 @@ hr.new1 {
               <b><a href="downloadpage1.html">DOWNLOAD MOD</a></b>
               <br>
               <br>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
           </div>
           <hr>
       </div>
@@ -576,28 +601,23 @@ hr.new1 {
 
             <div class="footer-contact">
               
-                <h5>Contact Us</h5>
-                <hr class="new1">
-                <h6><i class="fa-solid fa-envelope"></i>  Email: EpicNow16@gmail.com</h6>
-                <h6><i class="fa-solid fa-phone"></i>  Phone: +1 (123) 456-7890</h6>
-          <br>
-                <h5>Follow Us</h5>
-                <hr class="new1">
-                <div class="footer-social-icons">
-                    <div class ="text-middle"><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a></div>
-                   
-                    
-                    <div class = "text-middle"><a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-twitter"></i></a></div>
-               
-                    <div class = "text-middle"><a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></div>
+                <h5 class="h51">Contact Us</h5>              
 
-                    <div class = "text-middle"><a href="https://www.youtube.com/"><i class="fa-brands fa-github"></i></a></div>
+                <p><i class="fa-solid fa-envelope"></i>  Email: EpicNow16@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>  Phone: +1 (123) 456-7890</p>
+          <br>
+                <h5 class="h52">Follow Us</h5>
+                
+
+                <div class="social-icons">
+                  <a href="#"><i class="fa-brands fa-facebook" id="ice"></i></a> <a href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i class="fa-brands fa-github"></i></a> <a href="#"><i class="fa-brands fa-youtube"></i></i></a> 
                
                 </div>
             </div>
+            <br>
+            <p id="slogan">&copy; Since 2022 EpicNow.in By satyam prajapati. All rights reserved.</p>
         </div>
-        <br>
-        <p id="slogan">&copy; Since 2022 EpicNow.in By satyam prajapati. All rights reserved.</p>
+        
 
     </footer>
     
@@ -609,3 +629,11 @@ hr.new1 {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
